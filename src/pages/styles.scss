@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    .panel {
+        width: 70%;
+        height: 700px;
+        max-width: 800px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        input {
+            outline: 0;
+            border-width: 0 0 1px;
+            border-color: #89898963;
+            padding: 10px;
+            font-size: 30px;
+            text-align: center;
+            width: 100%;
+        }
+
+        input:focus::-webkit-input-placeholder {
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+        }
+    }
+}
+
+@media screen {
+    @media only screen and (max-width: 768px) {
+        .container {
+            margin-top: 20px;
+        }
+    }
+}

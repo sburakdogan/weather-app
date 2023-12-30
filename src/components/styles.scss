@@ -1,0 +1,105 @@
+.top {
+    margin-top: 30px;
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .degree {
+        display: flex;
+        flex-direction: column;
+
+        .temp {
+            font-size: 84px;
+            font-weight: 200;
+        }
+
+        @media screen {
+            @media only screen and (max-width: 768px) {
+                .temp {
+                    font-size: 64px;
+                }
+            }
+        }
+
+        .temp-range {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .description {
+            text-align: center;
+            text-transform: capitalize;
+            font-size: 18px;
+            margin: 10px;
+        }
+
+        .date {
+            text-align: center;
+            font-size: 24px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #5e5e5e30;
+        }
+    }
+
+    .list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+
+    .item {
+        display: flex;
+        align-items: baseline;
+        font-size: 24px;
+        margin-bottom: 10px;
+        padding-top: 20px;
+        color: #5e5e5e;
+    }
+
+    @media screen {
+        @media only screen and (max-width: 768px) {
+            .item {
+                display: none;
+            }
+        }
+    }
+
+    .icon {
+        margin-right: 10px;
+    }
+
+    .text {
+        font-size: small;
+        margin-left: 3px;
+    }
+}
+
+.middle {
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 130px;
+    border-bottom: 1px solid #5e5e5e30;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+    .hourly-forecast {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+        margin-left: 30px;
+
+        .hour {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    }
+}
