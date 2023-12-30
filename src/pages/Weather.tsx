@@ -17,8 +17,16 @@ const Weather = () => {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(pos => {
       const { latitude, longitude } = pos.coords;
-      const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
-      fetch(url).then(res => res.json()).then(data => setCity(data.address.town !== '' ? data.address.town : data.address.province))
+      axios
+        .get(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
+        .then((res) => {
+          const data = res.data;
+          setCity(data.address.town !== '' ? data.address.town : data.address.province);
+        })
+        .catch((err) => {
+          toast.error('Şehir/İlçe bulunamadı veya servise erişilemedi.', { autoClose: 1000, hideProgressBar: true });
+          console.log(err);
+        });
     })
   }, [])
 
