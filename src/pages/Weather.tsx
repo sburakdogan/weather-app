@@ -14,6 +14,14 @@ const Weather = () => {
     fetchWeatherForecast();
   }, []);
 
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(pos => {
+      const { latitude, longitude } = pos.coords;
+      const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
+      fetch(url).then(res => res.json()).then(data => setCity(data.address.town !== '' ? data.address.town : data.address.province))
+    })
+  }, [])
+
   const fetchWeatherForecast = () => {
     axios
       .get(`https://api.openweathermap.org/data/2.5/forecast?q=${city},tr&lang=tr&units=metric&appid=0d8988827732c871251d4377bc4f6c64`)
